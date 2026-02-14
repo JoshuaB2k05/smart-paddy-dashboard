@@ -1,37 +1,90 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Smart Paddy Water Control</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NELLIUM - Smart Paddy Intelligence</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="script.js"></script>
 </head>
 <body>
 
 <header>
-  <h1>🌾 Smart Paddy Water Control</h1>
+    <h1>🌾 NELLIUM</h1>
+    <p>Smart Automated Drainage & Irrigation Intelligence System</p>
 </header>
 
-<div class="main-input">
-  <h2>Enter Required Water Level (cm)</h2>
-  <input type="number" id="requiredLevel" placeholder="Enter cm">
-  <button onclick="applyLevel()">Apply to All Plots</button>
-</div>
+<nav>
+    <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="ta">தமிழ்</option>
+        <option value="hi">हिंदी</option>
+        <option value="ml">Malayalam</option>
+        <option value="te">Telugu</option>
+        <option value="kn">Kannada</option>
+        <option value="pa">Punjabi</option>
+        <option value="or">Odia</option>
+    </select>
 
-<div class="plots">
-  <div class="plot-card" id="plot1"></div>
-  <div class="plot-card" id="plot2"></div>
-  <div class="plot-card" id="plot3"></div>
-  <div class="plot-card" id="plot4"></div>
-</div>
+    <button onclick="toggleMode()">Auto Mode</button>
+</nav>
 
-<div class="summary">
-  <h2>AI Field Summary</h2>
-  <p id="aiSummary">Loading...</p>
-</div>
+<section class="main-control">
+    <h2>Set Recommended Water Level (cm)</h2>
+    <input type="number" id="targetLevel" placeholder="Enter water level in cm">
+    <button onclick="updateTarget()">Apply</button>
+</section>
 
-<!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<section class="plots">
+    <div class="plot-card" id="plot1">
+        <h3>Plot 1</h3>
+        <p>Water Level: <span class="water">--</span> cm</p>
+        <p>Gate: <span class="gate">Closed</span></p>
+        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
+    </div>
 
-<script src="script.js"></script>
+    <div class="plot-card" id="plot2">
+        <h3>Plot 2</h3>
+        <p>Water Level: <span class="water">--</span> cm</p>
+        <p>Gate: <span class="gate">Closed</span></p>
+        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
+    </div>
+
+    <div class="plot-card" id="plot3">
+        <h3>Plot 3</h3>
+        <p>Water Level: <span class="water">--</span> cm</p>
+        <p>Gate: <span class="gate">Closed</span></p>
+        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
+    </div>
+
+    <div class="plot-card" id="plot4">
+        <h3>Plot 4</h3>
+        <p>Water Level: <span class="water">--</span> cm</p>
+        <p>Gate: <span class="gate">Closed</span></p>
+        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
+    </div>
+</section>
+
+<section class="solar-section">
+    <h2>Solar & Power Status</h2>
+    <p>Battery: <span id="battery">--</span>%</p>
+    <p>Charging: <span id="charging">--</span></p>
+</section>
+
+<section class="connectivity">
+    <h2>Connectivity</h2>
+    <p>LoRa Signal: <span id="lora">--</span></p>
+    <p>Raspberry Pi: <span id="piStatus">Online</span></p>
+</section>
+
+<section class="ai-summary">
+    <h2>AI Field Summary</h2>
+    <p id="aiText">System waiting for data...</p>
+</section>
+
+<footer>
+    <p>© 2026 NELLIUM | Smart Agri Intelligence</p>
+</footer>
+
 </body>
 </html>
