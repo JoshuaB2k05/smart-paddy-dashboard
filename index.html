@@ -1,90 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NELLIUM - Smart Paddy Intelligence</title>
-<link rel="stylesheet" href="style.css">
-<script type="module" src="script.js"></script>
+  <title>NELLIUM | Smart Paddy Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="module" src="script.js"></script>
 </head>
+
 <body>
 
 <header>
-    <h1>🌾 NELLIUM</h1>
-    <p>Smart Automated Drainage & Irrigation Intelligence System</p>
+  <h1>NELLIUM</h1>
+  <select id="languageSelect">
+    <option value="en">English</option>
+    <option value="ta">தமிழ்</option>
+    <option value="hi">हिंदी</option>
+    <option value="ml">മലയാളം</option>
+    <option value="te">తెలుగు</option>
+    <option value="kn">ಕನ್ನಡ</option>
+    <option value="or">ଓଡ଼ିଆ</option>
+    <option value="pa">ਪੰਜਾਬੀ</option>
+  </select>
 </header>
 
-<nav>
-    <select id="languageSelect">
-        <option value="en">English</option>
-        <option value="ta">தமிழ்</option>
-        <option value="hi">हिंदी</option>
-        <option value="ml">Malayalam</option>
-        <option value="te">Telugu</option>
-        <option value="kn">Kannada</option>
-        <option value="pa">Punjabi</option>
-        <option value="or">Odia</option>
-    </select>
-
-    <button onclick="toggleMode()">Auto Mode</button>
-</nav>
-
 <section class="main-control">
-    <h2>Set Recommended Water Level (cm)</h2>
-    <input type="number" id="targetLevel" placeholder="Enter water level in cm">
-    <button onclick="updateTarget()">Apply</button>
+  <h2 id="setText">Set Required Water Level (cm)</h2>
+  <input type="number" id="levelInput" placeholder="Enter cm">
+  <button onclick="setLevelAll()">Apply To All Plots</button>
 </section>
 
-<section class="plots">
-    <div class="plot-card" id="plot1">
-        <h3>Plot 1</h3>
-        <p>Water Level: <span class="water">--</span> cm</p>
-        <p>Gate: <span class="gate">Closed</span></p>
-        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
-    </div>
-
-    <div class="plot-card" id="plot2">
-        <h3>Plot 2</h3>
-        <p>Water Level: <span class="water">--</span> cm</p>
-        <p>Gate: <span class="gate">Closed</span></p>
-        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
-    </div>
-
-    <div class="plot-card" id="plot3">
-        <h3>Plot 3</h3>
-        <p>Water Level: <span class="water">--</span> cm</p>
-        <p>Gate: <span class="gate">Closed</span></p>
-        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
-    </div>
-
-    <div class="plot-card" id="plot4">
-        <h3>Plot 4</h3>
-        <p>Water Level: <span class="water">--</span> cm</p>
-        <p>Gate: <span class="gate">Closed</span></p>
-        <p>Fail-safe: <span class="failsafe">Inactive</span></p>
-    </div>
+<section class="summary">
+  <h3>AI Executive Summary</h3>
+  <div id="aiSummary">Waiting for real-time data...</div>
 </section>
 
-<section class="solar-section">
-    <h2>Solar & Power Status</h2>
-    <p>Battery: <span id="battery">--</span>%</p>
-    <p>Charging: <span id="charging">--</span></p>
-</section>
+<section id="plotsContainer" class="plots"></section>
 
-<section class="connectivity">
-    <h2>Connectivity</h2>
-    <p>LoRa Signal: <span id="lora">--</span></p>
-    <p>Raspberry Pi: <span id="piStatus">Online</span></p>
+<section class="graph-section">
+  <h3>Live Water Trend</h3>
+  <canvas id="waterChart"></canvas>
 </section>
-
-<section class="ai-summary">
-    <h2>AI Field Summary</h2>
-    <p id="aiText">System waiting for data...</p>
-</section>
-
-<footer>
-    <p>© 2026 NELLIUM | Smart Agri Intelligence</p>
-</footer>
 
 </body>
 </html>

@@ -1,50 +1,110 @@
 body {
-  font-family: Arial;
-  background: #e8f5e9;
-  text-align: center;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
 }
 
 header {
-  background: #2e7d32;
-  color: white;
-  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(0,0,0,0.4);
+  backdrop-filter: blur(10px);
+  align-items: center;
 }
 
-.main-input {
-  margin: 30px;
+h1 {
+  color: #00ff88;
+  letter-spacing: 2px;
 }
 
-input {
+select {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.main-control {
+  text-align: center;
+  padding: 30px;
+}
+
+.main-control input {
   padding: 12px;
-  font-size: 18px;
   width: 200px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
 }
 
 button {
   padding: 12px 20px;
-  background: green;
-  color: white;
+  background: #00ff88;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.plots {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.plot-card {
-  background: white;
-  width: 220px;
-  margin: 15px;
-  padding: 15px;
-  border-radius: 10px;
+button:hover {
+  box-shadow: 0 0 15px #00ff88;
+  transform: scale(1.05);
 }
 
 .summary {
-  background: white;
   margin: 20px;
   padding: 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+.plots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.plot-card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(12px);
+  transition: 0.3s;
+  position: relative;
+}
+
+.plot-card:hover {
+  box-shadow: 0 0 20px #00ff88;
+}
+
+.water-bar {
+  height: 150px;
+  background: #1c1c1c;
   border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  position: relative;
+}
+
+.water-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(#00ff88, #00cc66);
+  transition: height 0.5s ease;
+}
+
+.battery {
+  margin-top: 10px;
+}
+
+.fail-safe {
+  color: orange;
+  font-weight: bold;
+}
+
+.graph-section {
+  padding: 20px;
 }
