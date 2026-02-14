@@ -1,0 +1,50 @@
+body {
+  font-family: Arial;
+  background: #e8f5e9;
+  text-align: center;
+}
+
+header {
+  background: #2e7d32;
+  color: white;
+  padding: 15px;
+}
+
+.main-input {
+  margin: 30px;
+}
+
+input {
+  padding: 12px;
+  font-size: 18px;
+  width: 200px;
+}
+
+button {
+  padding: 12px 20px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 6px;
+}
+
+.plots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.plot-card {
+  background: white;
+  width: 220px;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.summary {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+}

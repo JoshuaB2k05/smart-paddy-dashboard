@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Paddy Water Control</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>🌾 Smart Paddy Water Control</h1>
+</header>
+
+<div class="main-input">
+  <h2>Enter Required Water Level (cm)</h2>
+  <input type="number" id="requiredLevel" placeholder="Enter cm">
+  <button onclick="applyLevel()">Apply to All Plots</button>
+</div>
+
+<div class="plots">
+  <div class="plot-card" id="plot1"></div>
+  <div class="plot-card" id="plot2"></div>
+  <div class="plot-card" id="plot3"></div>
+  <div class="plot-card" id="plot4"></div>
+</div>
+
+<div class="summary">
+  <h2>AI Field Summary</h2>
+  <p id="aiSummary">Loading...</p>
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>
